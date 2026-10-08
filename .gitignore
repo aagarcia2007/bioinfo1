@@ -1,0 +1,19 @@
+# Datos de secuencias: nunca se versionan
+*.fasta
+*.fa
+*.fastq
+*.fq
+*.bam
+*.sam
+*.vcf
+*.gz
+
+# Resultados regenerables
+resultados/
+*.log
+
+# Basura del sistema y del editor
+.DS_Store
+*~
+.Rhistory
+
