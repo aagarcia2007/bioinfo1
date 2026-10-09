@@ -1,0 +1,4 @@
+La babosa Deroceras laeve tiene dos receptores LGR completos, localizados en los cromosomas 6 y 10. Los dos aparecen anotados como LGR4
+Los datos se copiaron de:
+origen=/mnt/data/bioinfo1/jmiranda/sesion08
+cp $origen/datos/* datos/
