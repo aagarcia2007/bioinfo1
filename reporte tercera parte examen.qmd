@@ -1,0 +1,7 @@
+---
+title: "reporte tercera parte examen"
+format: html
+author: Garcia ramirez ANgel Alonso
+
+---
+
