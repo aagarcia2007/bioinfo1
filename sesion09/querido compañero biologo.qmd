@@ -1,0 +1,6 @@
+---
+title: "A un buen compañero"
+format: html
+---
+
+No, el .dnd de Clustal no es una filogenia: es solo el orden en que el programa fue fusionando secuencias para alinearlas, así que para la tesis tienes que alinear, recortar, elegir modelo e inferir el árbol con medidas de apoyo, por ejemplo con IQ-TREE.
