@@ -1,0 +1,287 @@
+---
+title: "Ejercicios tema 2"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+
+
+ Ejercicio 1: Reconocer un archivo antes de importarlo
+
+Sin abrirlo en una hoja de cálculo, utiliza R para comprobar que existe blast_separador_incorrecto.csv, mostrar sus tres primeras líneas y determinar qué separador utiliza realmente.
+
+```{r}
+# Definir la ruta del archivo
+archivo <- "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/blast_separador_incorrecto.csv"
+
+# Comprobar si existe
+file.exists(archivo)
+
+# Mostrar las primeras tres líneas
+lineas <- readLines(archivo, n = 3)
+print(lineas)
+
+# Identificar el separador
+grepl("\t", lineas[1])
+```
+
+
+
+Ejercicio 2: Elegir la función adecuada
+
+Importa metadata_secuencias.csv y blast_comentarios.tsv utilizando readr. Conserva codigo_muestra como texto. Comprueba la clase de cada objeto y muestra sus primeras filas.
+
+
+```{r}
+# Cargar la biblioteca
+library(readr)
+
+# Importar el archivo CSV
+metadata <- read_csv(
+  "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/metadata_secuencias.csv",
+  col_types = cols(
+    codigo_muestra = col_character()
+  ),
+  show_col_types = FALSE
+)
+
+# Importar el archivo TSV
+blast_comentarios <- read_tsv(
+  "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/blast_comentarios.tsv",
+  comment = "#",
+  show_col_types = FALSE
+)
+
+# Comprobar las clases
+class(metadata)
+class(blast_comentarios)
+
+# Mostrar las primeras filas
+head(metadata)
+head(blast_comentarios)
+```
+
+
+
+Ejercicio 3: Explorar resultados tipo BLAST
+
+Con resultados_blast.tsv, responde mediante código:
+
+¿Cuántos registros y columnas tiene la tabla?
+¿Cuántos query_id diferentes aparecen?
+¿Cuántos resultados tiene cada consulta?
+¿Qué filas tienen pident mayor o igual a 95?
+¿Hay valores faltantes?
+
+
+```{r}
+# Importar los datos
+blast <- read_tsv(
+  "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/resultados_blast.tsv",
+  show_col_types = FALSE
+)
+
+# 1. Número de registros y columnas
+dim(blast)
+
+# 2. Número de query_id diferentes
+length(unique(blast$query_id))
+
+# 3. Cantidad de resultados por consulta
+table(blast$query_id)
+
+# 4. Filas con identidad mayor o igual a 95
+blast[blast$pident >= 95, ]
+
+# 5. Comprobar valores faltantes
+anyNA(blast)
+```
+
+
+
+
+
+Ejercicio 4: Detectar un problema de lectura
+
+Un estudiante importa blast_separador_incorrecto.csv con read_csv() y obtiene una sola columna. ¿Significa que el archivo contiene una única variable? Explica cómo comprobarlo y corrige la importación.
+
+```{r}
+# Definir la ruta
+ruta <- "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/blast_separador_incorrecto.csv"
+
+# Importar incorrectamente utilizando read_csv()
+mal <- readr::read_csv(
+  ruta,
+  show_col_types = FALSE
+)
+
+# Comprobar los nombres de las columnas
+names(mal)
+
+# Importar correctamente utilizando read_tsv()
+bien <- readr::read_tsv(
+  ruta,
+  show_col_types = FALSE
+)
+
+# Comprobar nuevamente los nombres
+names(bien)
+
+# Mostrar las primeras filas
+head(bien)
+```
+
+
+
+
+Ejercicio 5: Reconocer secuencias en FASTA
+
+Utiliza readLines() y grep() para identificar los encabezados de secuencias.fasta. ¿Cuántas entradas FASTA contiene el archivo? Muestra únicamente sus encabezados.
+
+
+
+```{r}
+# Leer el archivo FASTA
+lineas <- readLines(
+  "/home/aagarcia/bioinfo1/bioinformaticaR/data_raw/datos_sesion_02_blast/secuencias.fasta"
+)
+
+# Identificar los encabezados
+encabezados <- grep("^>", lineas, value = TRUE)
+
+# Mostrar los encabezados
+print(encabezados)
+
+# Contar las entradas FASTA
+length(encabezados)
+```
+
+
+
+
+Ejercicio 6: De los archivos a una descripción de los datos
+
+Crea un script llamado 02_exploracion.R dentro de tu proyecto. El script debe:
+
+Comprobar que existen resultados_blast.tsv, metadata_secuencias.csv y secuencias.fasta.
+Importar las dos tablas con readr y conservar codigo_muestra como texto.
+Mostrar dimensiones, nombres y tipos de columnas.
+Identificar los query_id distintos y contar los resultados por consulta.
+Mostrar las filas con pident >= 90 y explicar qué representa este filtro.
+Leer el FASTA e indicar cuántos encabezados contiene.
+Mostrar si alguna de las tablas tiene valores faltantes.
+
+Escribe al final del script, como comentarios, tres observaciones sobre la estructura de los datos, sin extraer conclusiones biológicas.
+
+
+
+
+```{r}
+# ==========================================
+# EJERCICIO 6
+# Exploracion de resultados bioinformaticos
+# ==========================================
+
+
+# 1. Comprobar que existen los archivos
+
+ruta_blast <- "data_raw/datos_sesion_02_blast/resultados_blast.tsv"
+
+ruta_metadata <- "data_raw/datos_sesion_02_blast/metadata_secuencias.csv"
+
+ruta_fasta <- "data_raw/datos_sesion_02_blast/secuencias.fasta"
+
+archivos <- c(ruta_blast, ruta_metadata, ruta_fasta)
+
+file.exists(archivos)
+
+
+
+# 2. Importar las tablas utilizando readr
+
+library(readr)
+
+blast <- read_tsv(
+  ruta_blast,
+  show_col_types = FALSE
+)
+
+metadata <- read_csv(
+  ruta_metadata,
+  col_types = cols(
+    codigo_muestra = col_character()
+  ),
+  show_col_types = FALSE
+)
+
+
+# 3. Mostrar dimensiones, nombres y tipos de columnas
+
+# Resultados BLAST
+dim(blast)
+names(blast)
+str(blast)
+
+# Metadata
+dim(metadata)
+names(metadata)
+str(metadata)
+
+
+# 4. Identificar query_id distintos
+# y contar los resultados por consulta
+
+unique(blast$query_id)
+
+length(unique(blast$query_id))
+
+table(blast$query_id)
+
+
+# 5. Mostrar filas con pident >= 90
+
+blast[blast$pident >= 90, ]
+
+
+# 6. Leer el archivo FASTA
+# e identificar sus encabezados
+
+lineas <- readLines(ruta_fasta)
+
+encabezados <- grep("^>", lineas, value = TRUE)
+
+print(encabezados)
+
+length(encabezados)
+
+
+# 7. Comprobar valores faltantes
+
+# Tabla BLAST
+anyNA(blast)
+
+colSums(is.na(blast))
+
+# Tabla metadata
+anyNA(metadata)
+
+colSums(is.na(metadata))
+
+
+# ==========================================
+# OBSERVACIONES
+# ==========================================
+
+# 1. La tabla BLAST contiene 20 registros y 6 columnas,
+#    mientras que los identificadores query_id corresponden
+#    a 8 consultas diferentes.
+
+# 2. La columna codigo_muestra de metadata se conserva
+#    como texto para mantener los ceros iniciales
+#    de los identificadores.
+
+# 3. El archivo FASTA contiene 8 entradas identificadas
+#    mediante encabezados que comienzan con el simbolo >.
+```
+
