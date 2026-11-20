@@ -1,0 +1,165 @@
+---
+title: "Ejercicios tema3"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+Queremos explorar qué genes podrían estar relacionados con la respuesta bacteriana al estrés.
+
+Utilizando dplyr:
+
+    Calcula el conteo promedio de cada gen en cada condición experimental.
+    Organiza los resultados de manera que puedas comparar los promedios de Control y Estrés para cada gen.
+    Calcula la razón entre el promedio en Estrés y el promedio en Control.
+    Identifica los cinco genes con mayor aumento relativo y muestra su anotación funcional.
+
+Pregunta de interpretación: ¿Un gen con un aumento relativo grande necesariamente presenta un conteo alto de lecturas? Justifica tu respuesta.
+
+
+
+8.10.2 Ejercicio 2. ¿Qué funciones biológicas predominan?
+
+Queremos investigar cuáles son las funciones biológicas representadas entre los genes con mayores conteos de lecturas.
+
+Utilizando dplyr:
+
+    Calcula el conteo promedio de cada gen considerando todas las muestras.
+    Identifica los 15 genes con mayor conteo promedio.
+    Determina cuántos de esos genes pertenecen a cada categoría funcional.
+    Ordena las categorías funcionales de mayor a menor frecuencia.
+
+Pregunta de interpretación: ¿La categoría funcional más frecuente entre estos 15 genes necesariamente es la más importante para la bacteria? Explica.
+
+
+```{r}
+
+# Cargar librerías
+library(readr)
+library(dplyr)
+
+# Importar los datos
+datos <- read_csv(
+  "data_raw/expresion_genica_estres.csv",
+  show_col_types = FALSE
+)
+
+# Explorar la estructura
+glimpse(datos)
+
+# Comprobar las primeras filas
+head(datos)
+```
+
+```{r}
+
+promedios <- datos %>%
+  group_by(gene_id, funcion, condicion) %>%
+  summarise(
+    promedio = mean(conteo),
+    .groups = "drop"
+  )
+
+promedios
+
+```
+
+```{r}
+
+library(tidyr)
+
+comparacion <- promedios %>%
+  pivot_wider(
+    names_from = condicion,
+    values_from = promedio
+  )
+
+comparacion
+
+
+```
+
+
+```{r}
+
+comparacion <- comparacion %>%
+  mutate(
+    razon = Estres / Control
+  )
+
+comparacion
+```
+
+```{r}
+
+
+genes_candidatos <- comparacion %>%
+  arrange(desc(razon)) %>%
+  slice_head(n = 5)
+
+genes_candidatos
+```
+
+¿Un gen con un aumento relativo grande necesariamente presenta un conteo alto de lecturas?
+
+Respuesta:
+
+No necesariamente. Un aumento relativo grande significa que el conteo promedio en Estrés es mucho mayor en comparación con Control, pero no implica que el número absoluto de lecturas sea elevado.
+
+
+
+
+
+
+
+2. ¿Qué funciones biológicas predominan?
+
+
+
+
+```{r}
+
+promedios_genes <- datos %>%
+  group_by(gene_id, funcion) %>%
+  summarise(
+    promedio = mean(conteo),
+    .groups = "drop"
+  )
+
+promedios_genes
+
+
+
+
+
+top15_genes <- promedios_genes %>%
+  arrange(desc(promedio)) %>%
+  slice_head(n = 15)
+
+top15_genes
+
+
+
+
+frecuencia_funciones <- top15_genes %>%
+  count(funcion, name = "cantidad_genes")
+
+frecuencia_funciones
+
+
+
+
+
+
+
+frecuencia_funciones <- top15_genes %>%
+  count(funcion, name = "cantidad_genes") %>%
+  arrange(desc(cantidad_genes))
+
+frecuencia_funciones
+```
+
+¿La categoría funcional más frecuente entre estos 15 genes necesariamente es la más importante para la bacteria?
+
+Respuesta:
+
+No necesariamente. Que una categoría funcional tenga más genes representados entre los 15 con mayores conteos no significa que sea la más importante para la bacteria.

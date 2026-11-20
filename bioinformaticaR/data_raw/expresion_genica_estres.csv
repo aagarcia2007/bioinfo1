@@ -1,0 +1,241 @@
+sample_id,condicion,replica,gene_id,funcion,longitud_pb,gc_porcentaje,conteo
+CTL_01,Control,1,gene_001,Función desconocida,1803,58.1,1302
+CTL_02,Control,2,gene_001,Función desconocida,1803,58.1,1263
+CTL_03,Control,3,gene_001,Función desconocida,1803,58.1,1368
+EST_01,Estres,1,gene_001,Función desconocida,1803,58.1,892
+EST_02,Estres,2,gene_001,Función desconocida,1803,58.1,953
+EST_03,Estres,3,gene_001,Función desconocida,1803,58.1,1106
+CTL_01,Control,1,gene_002,Metabolismo de aminoácidos,891,43.2,639
+CTL_02,Control,2,gene_002,Metabolismo de aminoácidos,891,43.2,998
+CTL_03,Control,3,gene_002,Metabolismo de aminoácidos,891,43.2,1108
+EST_01,Estres,1,gene_002,Metabolismo de aminoácidos,891,43.2,733
+EST_02,Estres,2,gene_002,Metabolismo de aminoácidos,891,43.2,935
+EST_03,Estres,3,gene_002,Metabolismo de aminoácidos,891,43.2,1054
+CTL_01,Control,1,gene_003,Síntesis de proteínas,1611,59.4,784
+CTL_02,Control,2,gene_003,Síntesis de proteínas,1611,59.4,1108
+CTL_03,Control,3,gene_003,Síntesis de proteínas,1611,59.4,888
+EST_01,Estres,1,gene_003,Síntesis de proteínas,1611,59.4,956
+EST_02,Estres,2,gene_003,Síntesis de proteínas,1611,59.4,1089
+EST_03,Estres,3,gene_003,Síntesis de proteínas,1611,59.4,1079
+CTL_01,Control,1,gene_004,Síntesis de proteínas,1365,55.1,953
+CTL_02,Control,2,gene_004,Síntesis de proteínas,1365,55.1,1492
+CTL_03,Control,3,gene_004,Síntesis de proteínas,1365,55.1,1336
+EST_01,Estres,1,gene_004,Síntesis de proteínas,1365,55.1,1498
+EST_02,Estres,2,gene_004,Síntesis de proteínas,1365,55.1,1769
+EST_03,Estres,3,gene_004,Síntesis de proteínas,1365,55.1,2131
+CTL_01,Control,1,gene_005,Regulación transcripcional,1959,37.8,90
+CTL_02,Control,2,gene_005,Regulación transcripcional,1959,37.8,101
+CTL_03,Control,3,gene_005,Regulación transcripcional,1959,37.8,134
+EST_01,Estres,1,gene_005,Regulación transcripcional,1959,37.8,109
+EST_02,Estres,2,gene_005,Regulación transcripcional,1959,37.8,193
+EST_03,Estres,3,gene_005,Regulación transcripcional,1959,37.8,199
+CTL_01,Control,1,gene_006,Replicación y reparación,792,46.4,808
+CTL_02,Control,2,gene_006,Replicación y reparación,792,46.4,968
+CTL_03,Control,3,gene_006,Replicación y reparación,792,46.4,1063
+EST_01,Estres,1,gene_006,Replicación y reparación,792,46.4,1524
+EST_02,Estres,2,gene_006,Replicación y reparación,792,46.4,2202
+EST_03,Estres,3,gene_006,Replicación y reparación,792,46.4,2142
+CTL_01,Control,1,gene_007,Metabolismo energético,810,60.8,561
+CTL_02,Control,2,gene_007,Metabolismo energético,810,60.8,764
+CTL_03,Control,3,gene_007,Metabolismo energético,810,60.8,927
+EST_01,Estres,1,gene_007,Metabolismo energético,810,60.8,1756
+EST_02,Estres,2,gene_007,Metabolismo energético,810,60.8,1951
+EST_03,Estres,3,gene_007,Metabolismo energético,810,60.8,2774
+CTL_01,Control,1,gene_008,Metabolismo energético,2037,38.0,800
+CTL_02,Control,2,gene_008,Metabolismo energético,2037,38.0,906
+CTL_03,Control,3,gene_008,Metabolismo energético,2037,38.0,1163
+EST_01,Estres,1,gene_008,Metabolismo energético,2037,38.0,3058
+EST_02,Estres,2,gene_008,Metabolismo energético,2037,38.0,4105
+EST_03,Estres,3,gene_008,Metabolismo energético,2037,38.0,5257
+CTL_01,Control,1,gene_009,Transporte de membrana,1251,50.1,154
+CTL_02,Control,2,gene_009,Transporte de membrana,1251,50.1,182
+CTL_03,Control,3,gene_009,Transporte de membrana,1251,50.1,200
+EST_01,Estres,1,gene_009,Transporte de membrana,1251,50.1,845
+EST_02,Estres,2,gene_009,Transporte de membrana,1251,50.1,1322
+EST_03,Estres,3,gene_009,Transporte de membrana,1251,50.1,1318
+CTL_01,Control,1,gene_010,Respuesta al estrés,699,35.1,790
+CTL_02,Control,2,gene_010,Respuesta al estrés,699,35.1,1319
+CTL_03,Control,3,gene_010,Respuesta al estrés,699,35.1,1264
+EST_01,Estres,1,gene_010,Respuesta al estrés,699,35.1,430
+EST_02,Estres,2,gene_010,Respuesta al estrés,699,35.1,448
+EST_03,Estres,3,gene_010,Respuesta al estrés,699,35.1,613
+CTL_01,Control,1,gene_011,Función desconocida,1743,59.3,635
+CTL_02,Control,2,gene_011,Función desconocida,1743,59.3,1060
+CTL_03,Control,3,gene_011,Función desconocida,1743,59.3,986
+EST_01,Estres,1,gene_011,Función desconocida,1743,59.3,423
+EST_02,Estres,2,gene_011,Función desconocida,1743,59.3,578
+EST_03,Estres,3,gene_011,Función desconocida,1743,59.3,713
+CTL_01,Control,1,gene_012,Función desconocida,1506,62.3,490
+CTL_02,Control,2,gene_012,Función desconocida,1506,62.3,866
+CTL_03,Control,3,gene_012,Función desconocida,1506,62.3,705
+EST_01,Estres,1,gene_012,Función desconocida,1506,62.3,485
+EST_02,Estres,2,gene_012,Función desconocida,1506,62.3,619
+EST_03,Estres,3,gene_012,Función desconocida,1506,62.3,755
+CTL_01,Control,1,gene_013,Metabolismo de aminoácidos,2187,62.2,689
+CTL_02,Control,2,gene_013,Metabolismo de aminoácidos,2187,62.2,1055
+CTL_03,Control,3,gene_013,Metabolismo de aminoácidos,2187,62.2,1317
+EST_01,Estres,1,gene_013,Metabolismo de aminoácidos,2187,62.2,735
+EST_02,Estres,2,gene_013,Metabolismo de aminoácidos,2187,62.2,1119
+EST_03,Estres,3,gene_013,Metabolismo de aminoácidos,2187,62.2,1197
+CTL_01,Control,1,gene_014,Síntesis de proteínas,984,62.4,795
+CTL_02,Control,2,gene_014,Síntesis de proteínas,984,62.4,959
+CTL_03,Control,3,gene_014,Síntesis de proteínas,984,62.4,1054
+EST_01,Estres,1,gene_014,Síntesis de proteínas,984,62.4,1097
+EST_02,Estres,2,gene_014,Síntesis de proteínas,984,62.4,1091
+EST_03,Estres,3,gene_014,Síntesis de proteínas,984,62.4,1539
+CTL_01,Control,1,gene_015,Regulación transcripcional,507,64.7,850
+CTL_02,Control,2,gene_015,Regulación transcripcional,507,64.7,1295
+CTL_03,Control,3,gene_015,Regulación transcripcional,507,64.7,1482
+EST_01,Estres,1,gene_015,Regulación transcripcional,507,64.7,1193
+EST_02,Estres,2,gene_015,Regulación transcripcional,507,64.7,1741
+EST_03,Estres,3,gene_015,Regulación transcripcional,507,64.7,1898
+CTL_01,Control,1,gene_016,Regulación transcripcional,645,48.2,205
+CTL_02,Control,2,gene_016,Regulación transcripcional,645,48.2,351
+CTL_03,Control,3,gene_016,Regulación transcripcional,645,48.2,307
+EST_01,Estres,1,gene_016,Regulación transcripcional,645,48.2,484
+EST_02,Estres,2,gene_016,Regulación transcripcional,645,48.2,649
+EST_03,Estres,3,gene_016,Regulación transcripcional,645,48.2,571
+CTL_01,Control,1,gene_017,Replicación y reparación,483,54.1,780
+CTL_02,Control,2,gene_017,Replicación y reparación,483,54.1,1106
+CTL_03,Control,3,gene_017,Replicación y reparación,483,54.1,1165
+EST_01,Estres,1,gene_017,Replicación y reparación,483,54.1,1916
+EST_02,Estres,2,gene_017,Replicación y reparación,483,54.1,3118
+EST_03,Estres,3,gene_017,Replicación y reparación,483,54.1,2759
+CTL_01,Control,1,gene_018,Metabolismo energético,2166,53.0,1059
+CTL_02,Control,2,gene_018,Metabolismo energético,2166,53.0,1166
+CTL_03,Control,3,gene_018,Metabolismo energético,2166,53.0,1470
+EST_01,Estres,1,gene_018,Metabolismo energético,2166,53.0,3614
+EST_02,Estres,2,gene_018,Metabolismo energético,2166,53.0,5482
+EST_03,Estres,3,gene_018,Metabolismo energético,2166,53.0,5146
+CTL_01,Control,1,gene_019,Transporte de membrana,1068,52.2,666
+CTL_02,Control,2,gene_019,Transporte de membrana,1068,52.2,896
+CTL_03,Control,3,gene_019,Transporte de membrana,1068,52.2,1043
+EST_01,Estres,1,gene_019,Transporte de membrana,1068,52.2,3351
+EST_02,Estres,2,gene_019,Transporte de membrana,1068,52.2,3625
+EST_03,Estres,3,gene_019,Transporte de membrana,1068,52.2,5083
+CTL_01,Control,1,gene_020,Transporte de membrana,477,58.0,1054
+CTL_02,Control,2,gene_020,Transporte de membrana,477,58.0,1068
+CTL_03,Control,3,gene_020,Transporte de membrana,477,58.0,1515
+EST_01,Estres,1,gene_020,Transporte de membrana,477,58.0,441
+EST_02,Estres,2,gene_020,Transporte de membrana,477,58.0,479
+EST_03,Estres,3,gene_020,Transporte de membrana,477,58.0,551
+CTL_01,Control,1,gene_021,Respuesta al estrés,1272,56.7,285
+CTL_02,Control,2,gene_021,Respuesta al estrés,1272,56.7,372
+CTL_03,Control,3,gene_021,Respuesta al estrés,1272,56.7,394
+EST_01,Estres,1,gene_021,Respuesta al estrés,1272,56.7,195
+EST_02,Estres,2,gene_021,Respuesta al estrés,1272,56.7,268
+EST_03,Estres,3,gene_021,Respuesta al estrés,1272,56.7,252
+CTL_01,Control,1,gene_022,Función desconocida,2241,67.7,500
+CTL_02,Control,2,gene_022,Función desconocida,2241,67.7,710
+CTL_03,Control,3,gene_022,Función desconocida,2241,67.7,936
+EST_01,Estres,1,gene_022,Función desconocida,2241,67.7,680
+EST_02,Estres,2,gene_022,Función desconocida,2241,67.7,824
+EST_03,Estres,3,gene_022,Función desconocida,2241,67.7,756
+CTL_01,Control,1,gene_023,Metabolismo de aminoácidos,1008,67.2,1222
+CTL_02,Control,2,gene_023,Metabolismo de aminoácidos,1008,67.2,1458
+CTL_03,Control,3,gene_023,Metabolismo de aminoácidos,1008,67.2,1482
+EST_01,Estres,1,gene_023,Metabolismo de aminoácidos,1008,67.2,1342
+EST_02,Estres,2,gene_023,Metabolismo de aminoácidos,1008,67.2,1350
+EST_03,Estres,3,gene_023,Metabolismo de aminoácidos,1008,67.2,1923
+CTL_01,Control,1,gene_024,Metabolismo de aminoácidos,834,60.2,1102
+CTL_02,Control,2,gene_024,Metabolismo de aminoácidos,834,60.2,1364
+CTL_03,Control,3,gene_024,Metabolismo de aminoácidos,834,60.2,1334
+EST_01,Estres,1,gene_024,Metabolismo de aminoácidos,834,60.2,1185
+EST_02,Estres,2,gene_024,Metabolismo de aminoácidos,834,60.2,1715
+EST_03,Estres,3,gene_024,Metabolismo de aminoácidos,834,60.2,1968
+CTL_01,Control,1,gene_025,Síntesis de proteínas,1701,63.0,136
+CTL_02,Control,2,gene_025,Síntesis de proteínas,1701,63.0,181
+CTL_03,Control,3,gene_025,Síntesis de proteínas,1701,63.0,155
+EST_01,Estres,1,gene_025,Síntesis de proteínas,1701,63.0,195
+EST_02,Estres,2,gene_025,Síntesis de proteínas,1701,63.0,208
+EST_03,Estres,3,gene_025,Síntesis de proteínas,1701,63.0,284
+CTL_01,Control,1,gene_026,Regulación transcripcional,1659,67.8,1132
+CTL_02,Control,2,gene_026,Regulación transcripcional,1659,67.8,1142
+CTL_03,Control,3,gene_026,Regulación transcripcional,1659,67.8,1187
+EST_01,Estres,1,gene_026,Regulación transcripcional,1659,67.8,1712
+EST_02,Estres,2,gene_026,Regulación transcripcional,1659,67.8,2067
+EST_03,Estres,3,gene_026,Regulación transcripcional,1659,67.8,2772
+CTL_01,Control,1,gene_027,Replicación y reparación,591,60.5,275
+CTL_02,Control,2,gene_027,Replicación y reparación,591,60.5,304
+CTL_03,Control,3,gene_027,Replicación y reparación,591,60.5,323
+EST_01,Estres,1,gene_027,Replicación y reparación,591,60.5,682
+EST_02,Estres,2,gene_027,Replicación y reparación,591,60.5,708
+EST_03,Estres,3,gene_027,Replicación y reparación,591,60.5,1030
+CTL_01,Control,1,gene_028,Replicación y reparación,405,62.0,375
+CTL_02,Control,2,gene_028,Replicación y reparación,405,62.0,491
+CTL_03,Control,3,gene_028,Replicación y reparación,405,62.0,490
+EST_01,Estres,1,gene_028,Replicación y reparación,405,62.0,1798
+EST_02,Estres,2,gene_028,Replicación y reparación,405,62.0,2205
+EST_03,Estres,3,gene_028,Replicación y reparación,405,62.0,2379
+CTL_01,Control,1,gene_029,Metabolismo energético,711,40.9,196
+CTL_02,Control,2,gene_029,Metabolismo energético,711,40.9,272
+CTL_03,Control,3,gene_029,Metabolismo energético,711,40.9,242
+EST_01,Estres,1,gene_029,Metabolismo energético,711,40.9,1060
+EST_02,Estres,2,gene_029,Metabolismo energético,711,40.9,1309
+EST_03,Estres,3,gene_029,Metabolismo energético,711,40.9,1584
+CTL_01,Control,1,gene_030,Transporte de membrana,1473,58.0,90
+CTL_02,Control,2,gene_030,Transporte de membrana,1473,58.0,139
+CTL_03,Control,3,gene_030,Transporte de membrana,1473,58.0,142
+EST_01,Estres,1,gene_030,Transporte de membrana,1473,58.0,43
+EST_02,Estres,2,gene_030,Transporte de membrana,1473,58.0,54
+EST_03,Estres,3,gene_030,Transporte de membrana,1473,58.0,72
+CTL_01,Control,1,gene_031,Respuesta al estrés,1353,43.5,1122
+CTL_02,Control,2,gene_031,Respuesta al estrés,1353,43.5,1296
+CTL_03,Control,3,gene_031,Respuesta al estrés,1353,43.5,1500
+EST_01,Estres,1,gene_031,Respuesta al estrés,1353,43.5,616
+EST_02,Estres,2,gene_031,Respuesta al estrés,1353,43.5,976
+EST_03,Estres,3,gene_031,Respuesta al estrés,1353,43.5,1035
+CTL_01,Control,1,gene_032,Respuesta al estrés,2394,67.2,1056
+CTL_02,Control,2,gene_032,Respuesta al estrés,2394,67.2,1317
+CTL_03,Control,3,gene_032,Respuesta al estrés,2394,67.2,1561
+EST_01,Estres,1,gene_032,Respuesta al estrés,2394,67.2,957
+EST_02,Estres,2,gene_032,Respuesta al estrés,2394,67.2,1169
+EST_03,Estres,3,gene_032,Respuesta al estrés,2394,67.2,1377
+CTL_01,Control,1,gene_033,Función desconocida,906,60.5,654
+CTL_02,Control,2,gene_033,Función desconocida,906,60.5,877
+CTL_03,Control,3,gene_033,Función desconocida,906,60.5,1250
+EST_01,Estres,1,gene_033,Función desconocida,906,60.5,891
+EST_02,Estres,2,gene_033,Función desconocida,906,60.5,1005
+EST_03,Estres,3,gene_033,Función desconocida,906,60.5,1304
+CTL_01,Control,1,gene_034,Metabolismo de aminoácidos,1356,38.1,548
+CTL_02,Control,2,gene_034,Metabolismo de aminoácidos,1356,38.1,685
+CTL_03,Control,3,gene_034,Metabolismo de aminoácidos,1356,38.1,692
+EST_01,Estres,1,gene_034,Metabolismo de aminoácidos,1356,38.1,562
+EST_02,Estres,2,gene_034,Metabolismo de aminoácidos,1356,38.1,843
+EST_03,Estres,3,gene_034,Metabolismo de aminoácidos,1356,38.1,857
+CTL_01,Control,1,gene_035,Síntesis de proteínas,2310,56.4,42
+CTL_02,Control,2,gene_035,Síntesis de proteínas,2310,56.4,63
+CTL_03,Control,3,gene_035,Síntesis de proteínas,2310,56.4,77
+EST_01,Estres,1,gene_035,Síntesis de proteínas,2310,56.4,54
+EST_02,Estres,2,gene_035,Síntesis de proteínas,2310,56.4,88
+EST_03,Estres,3,gene_035,Síntesis de proteínas,2310,56.4,106
+CTL_01,Control,1,gene_036,Síntesis de proteínas,705,63.4,855
+CTL_02,Control,2,gene_036,Síntesis de proteínas,705,63.4,1030
+CTL_03,Control,3,gene_036,Síntesis de proteínas,705,63.4,1172
+EST_01,Estres,1,gene_036,Síntesis de proteínas,705,63.4,1598
+EST_02,Estres,2,gene_036,Síntesis de proteínas,705,63.4,2391
+EST_03,Estres,3,gene_036,Síntesis de proteínas,705,63.4,2463
+CTL_01,Control,1,gene_037,Regulación transcripcional,1104,35.4,32
+CTL_02,Control,2,gene_037,Regulación transcripcional,1104,35.4,42
+CTL_03,Control,3,gene_037,Regulación transcripcional,1104,35.4,44
+EST_01,Estres,1,gene_037,Regulación transcripcional,1104,35.4,83
+EST_02,Estres,2,gene_037,Regulación transcripcional,1104,35.4,120
+EST_03,Estres,3,gene_037,Regulación transcripcional,1104,35.4,124
+CTL_01,Control,1,gene_038,Replicación y reparación,1005,58.8,146
+CTL_02,Control,2,gene_038,Replicación y reparación,1005,58.8,186
+CTL_03,Control,3,gene_038,Replicación y reparación,1005,58.8,204
+EST_01,Estres,1,gene_038,Replicación y reparación,1005,58.8,435
+EST_02,Estres,2,gene_038,Replicación y reparación,1005,58.8,676
+EST_03,Estres,3,gene_038,Replicación y reparación,1005,58.8,671
+CTL_01,Control,1,gene_039,Metabolismo energético,726,51.5,277
+CTL_02,Control,2,gene_039,Metabolismo energético,726,51.5,274
+CTL_03,Control,3,gene_039,Metabolismo energético,726,51.5,385
+EST_01,Estres,1,gene_039,Metabolismo energético,726,51.5,1564
+EST_02,Estres,2,gene_039,Metabolismo energético,726,51.5,1655
+EST_03,Estres,3,gene_039,Metabolismo energético,726,51.5,1931
+CTL_01,Control,1,gene_040,Metabolismo energético,2238,65.2,145
+CTL_02,Control,2,gene_040,Metabolismo energético,2238,65.2,228
+CTL_03,Control,3,gene_040,Metabolismo energético,2238,65.2,258
+EST_01,Estres,1,gene_040,Metabolismo energético,2238,65.2,67
+EST_02,Estres,2,gene_040,Metabolismo energético,2238,65.2,108
+EST_03,Estres,3,gene_040,Metabolismo energético,2238,65.2,121
