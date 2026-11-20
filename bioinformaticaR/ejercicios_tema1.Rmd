@@ -250,3 +250,55 @@ ids <- c("seq_01", "seq_02", "seq_03", "seq_04")
 secuencias <- c("ATGCGT", "ACNTGA", "GGCCAA", "TTTAAA")
 
 ```
+
+
+
+#1.6 Scrips, paquetes y proyectos de Rstudio
+
+
+Ejercicio 1
+
+Considera el siguiente código, guardado en un archivo llamado revision.R:
+Código
+
+longitudes <- nchar(secuencias)
+resultado <- data.frame(id = ids, longitud = longitudes)
+print(resultado)
+
+Un estudiante afirma que el archivo funciona porque obtuvo una tabla al ejecutarlo en su computadora.
+
+¿Por qué podría fallar si otra persona abre el archivo y lo ejecuta desde una sesión nueva de R?
+¿Cómo se puede modificar el script para que pueda ejecutarse completo sin depender de objetos creados previamente en la consola?
+
+
+
+
+1. ¿Por qué podría fallar en una sesión nueva de R?
+El archivo revision.R utiliza los objetos secuencias e ids, pero no los define dentro del propio script.
+
+Es posible que el estudiante los haya creado previamente en su consola de RStudio. Por eso, al ejecutar el archivo en su computadora, funciona porque esos objetos ya existen en el entorno de trabajo.
+
+Sin embargo, si otra persona ejecuta el archivo desde una sesión nueva de R, aparecerá un error porque esos objetos no están definidos.
+2. ¿Cómo modificar el script?
+
+
+
+```{r}
+# Definir los vectores
+ids <- c("seq_01", "seq_02", "seq_03", "seq_04")
+
+secuencias <- c("ATGCGT", "ACNTGA", "GGCCAA", "TTTAAA")
+
+# Calcular las longitudes
+longitudes <- nchar(secuencias)
+
+# Crear el data.frame
+resultado <- data.frame(
+  id = ids,
+  longitud = longitudes
+)
+
+# Mostrar los resultados
+print(resultado)
+```
+
