@@ -3,6 +3,8 @@ title: "Tema 1"
 output:
   pdf_document: default
   html_notebook: default
+  html_document:
+    df_print: paged
 ---
 
 Selecciona el tercer identificador. Recupera los identificadores de genes con longitud de al menos 300. Cuenta cuántos cumplen esa condición sin usar un ciclo.
@@ -65,14 +67,9 @@ Ejercicio 1. Clasificación de un valor
 
 Define una variable conteo que represente el número de lecturas asignadas a un gen. Escribe un condicional que imprima:
 
-"Dato faltante" si el valor es NA.
-"Conteo inválido" si es negativo.
-"Sin lecturas" si es cero.
-"Con lecturas" si es positivo.
+"Dato faltante" si el valor es NA. "Conteo inválido" si es negativo. "Sin lecturas" si es cero. "Con lecturas" si es positivo.
 
 Prueba tu código con NA, -2, 0 y 15.
-
-
 
 ```{r}
 #variable conteo
@@ -89,17 +86,11 @@ if (is.na(conteo)) {
 }
 ```
 
+Ejercicio 2. Verificación de conteos
 
+Considera el vector conteos \<- c(8, 0, 13, 5, 0, 21). Utiliza las funciones anteriores para:
 
-
- Ejercicio 2. Verificación de conteos
-
-Considera el vector conteos <- c(8, 0, 13, 5, 0, 21). Utiliza las funciones anteriores para:
-
-Verificar si todos los valores son no negativos.
-Determinar si existe al menos un conteo mayor que 20.
-Obtener las posiciones de los conteos iguales a cero.
-Crear un vector que indique "Presente" o "Ausente" según si el conteo es mayor que cero.
+Verificar si todos los valores son no negativos. Determinar si existe al menos un conteo mayor que 20. Obtener las posiciones de los conteos iguales a cero. Crear un vector que indique "Presente" o "Ausente" según si el conteo es mayor que cero.
 
 ```{r}
 #no negativo
@@ -113,19 +104,13 @@ which(conteos == 0)
 ifelse(conteos > 0, "Presente", "Ausente")
 ```
 
-
-
-
 Ejercicio 3. Longitudes de secuencias
 
-A partir del vector:
-Código
+A partir del vector: Código
 
-secuencias <- c("ATG", "ATGCGT", "AATTCCGG", "CG")
+secuencias \<- c("ATG", "ATGCGT", "AATTCCGG", "CG")
 
-Utiliza un ciclo for para guardar las longitudes en un vector llamado longitudes.
-Crea otro vector llamado clasificacion que contenga "Corta" para longitudes menores que 5 y "Larga" para longitudes de al menos 5.
-Muestra ambos vectores.
+Utiliza un ciclo for para guardar las longitudes en un vector llamado longitudes. Crea otro vector llamado clasificacion que contenga "Corta" para longitudes menores que 5 y "Larga" para longitudes de al menos 5. Muestra ambos vectores.
 
 ```{r}
 secuencias <- c("ATG", "ATGCGT", "AATTCCGG", "CG")
@@ -145,12 +130,9 @@ for (i in seq_along(secuencias)) {
 longitudes
 ```
 
-
-
 Ejercicio 4. Alcanzar una longitud
 
 Imagina que estamos construyendo una secuencia mediante la adición de un nucleótido "A" en cada iteración. Escribe un ciclo while que comience con una cadena vacía y se detenga cuando la secuencia alcance 8 nucleótidos. Muestra el resultado final.
-
 
 ```{r}
 secuencia <- ""
@@ -164,14 +146,9 @@ secuencia
 nchar(secuencia)
 ```
 
-
-
 #1.5 FUNCIONES EN R
 
-
-Ejercicio1
-Escribe una función llamada empieza_con que reciba una secuencia y un prefijo, y determine si la secuencia comienza con ese prefijo. Pruébala con "ATGCGT" y los prefijos "ATG" y "TGA".
-
+Ejercicio1 Escribe una función llamada empieza_con que reciba una secuencia y un prefijo, y determine si la secuencia comienza con ese prefijo. Pruébala con "ATGCGT" y los prefijos "ATG" y "TGA".
 
 ```{r}
 # Crear la función
@@ -184,12 +161,9 @@ empieza_con("ATGCGT", "ATG")
 empieza_con("ATGCGT", "TGA")
 ```
 
-
-
 Ejercicio 2: Función 2
 
 Modifica resumir_adn() para que también devuelva la proporción de nucleótidos G y C respecto de la longitud total. Prueba la función con una secuencia no vacía.
-
 
 ```{r}
 resumir_adn <- function(id, secuencia) {
@@ -209,15 +183,11 @@ resumir_adn <- function(id, secuencia) {
 #resumir_adn("GEN_01", "ATGCGTAA")
 ```
 
-
-
 Ejercicio 3: Función 3
 
 Crea una función llamada clasificar_secuencias que reciba un vector de secuencias y devuelva una lista con dos elementos:
 
-validas: las secuencias formadas únicamente por A, C, G y T.
-invalidas: las secuencias que contienen otros caracteres o valores faltantes.
-Utiliza la función revisar_secuencias() del ejemplo anterior.
+validas: las secuencias formadas únicamente por A, C, G y T. invalidas: las secuencias que contienen otros caracteres o valores faltantes. Utiliza la función revisar_secuencias() del ejemplo anterior.
 
 ```{r}
 # Crear la función
@@ -238,16 +208,11 @@ clasificar_secuencias <- function(secuencias) {
 }
 ```
 
-Ejercicio 4
-Un archivo de secuencias ha sido representado en R mediante dos vectores:
+Ejercicio 4 Un archivo de secuencias ha sido representado en R mediante dos vectores:
 
 Escribe una función crear_reporte_secuencias(ids, secuencias) que:
 
-Compruebe que ambos argumentos son vectores de caracteres y tienen la misma longitud.
-Identifique las secuencias válidas mediante revisar_secuencias().
-Devuelva un data.frame con las columnas id, secuencia, longitud y valida.
-Asigne NA a la longitud de las secuencias inválidas.
-
+Compruebe que ambos argumentos son vectores de caracteres y tienen la misma longitud. Identifique las secuencias válidas mediante revisar_secuencias(). Devuelva un data.frame con las columnas id, secuencia, longitud y valida. Asigne NA a la longitud de las secuencias inválidas.
 
 ```{r}
 crear_reporte_secuencias <- function(ids, secuencias) {
@@ -284,7 +249,4 @@ crear_reporte_secuencias <- function(ids, secuencias) {
 ids <- c("seq_01", "seq_02", "seq_03", "seq_04")
 secuencias <- c("ATGCGT", "ACNTGA", "GGCCAA", "TTTAAA")
 
-# Ejecutar la función
-crear_reporte_secuencias(ids, secuencias)
 ```
-
