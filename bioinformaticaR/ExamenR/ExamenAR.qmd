@@ -1,0 +1,171 @@
+---
+title: "Examen final de Introducción a R - Versión A"
+subtitle: "Bioinformática I — Versión A"
+author: "Angel Alonso García Ramírez"
+lang: es
+format:
+  html:
+    toc: true
+    code-fold: true
+    embed-resources: true
+execute:
+  warning: false
+  message: false
+---
+
+## Instrucciones generales
+
+**Duración: 120 minutos. Valor total: 100 puntos.**
+
+El objetivo es reproducir dos figuras a partir de datos reales de mieles de abejas sin aguijón. Los conteos proporcionados corresponden únicamente a bacterias con asignación taxonómica a nivel de género. Se incluyen 17 muestras de dos especies de abejas.
+
+Trabaja en tu proyecto de RStudio y utiliza este documento como [plantilla](https://github.com/CursosENESJuriquilla/Intro_to_R_Bioinfo_2027-1/raw/refs/heads/main/versionA.qmd). Sustituye el nombre del autor por el tuyo. Agrega tus bloques de código R ejecutables y tus respuestas en las secciones correspondientes. Conserva las rutas relativas y muestra el procedimiento completo. Las figuras de referencia son una guía: no es necesario reproducir exactamente la tipografía ni los tamaños.
+
+## Importación y exploración (10 puntos)
+
+Descarga y descomprime [datos_A.zip](https://github.com/CursosENESJuriquilla/Intro_to_R_Bioinfo_2027-1/raw/refs/heads/main/data/datos_A.zip). Importa con `readr` los archivos `datos/conteos_genero_miel_bacterias.tsv` y `datos/metadata_miel_examen.csv`.
+
+- Indica las dimensiones de ambas tablas y el número de muestras por especie de abeja.
+- Identifica si existen valores faltantes en los metadatos e indica en qué variable o variables.
+
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+
+conteos <- read_tsv("datos_A/conteos_genero_miel_bacterias.tsv",
+                    show_col_types = FALSE)
+
+metadata <- read_csv("datos_A/metadata_miel_examen.csv",
+                     show_col_types = FALSE)
+
+dim(conteos)
+dim(metadata)
+
+metadata %>%
+  count(species, name = "muestras")
+
+# Revisar los valores faltantes por columna
+colSums(is.na(metadata))
+```
+
+La tabla de conteos tiene 37,128 filas y 3 columnas, mientras que los metadatos tienen 17 filas y 14 columnas. Hay 9 muestras de *Melipona beecheii* y 8 de *Scaptotrigona mexicana*. Los únicos datos faltantes son 2 valores en la columna `Total_sugar`.
+
+## Integración y abundancia relativa (20 puntos)
+
+Integra las dos tablas mediante el identificador `sample_id`. Calcula la abundancia relativa de cada género dentro de cada muestra, dividiendo su conteo entre la suma de los conteos de esa muestra. Conserva las abundancias como proporciones entre 0 y 1.
+
+```{r}
+datos <- conteos %>%
+  left_join(metadata, by = "sample_id") %>%
+  group_by(sample_id) %>%
+  mutate(abundancia_relativa = conteo / sum(conteo)) %>%
+  ungroup()
+
+# Comprobar que las abundancias de cada muestra suman 1
+datos %>%
+  group_by(sample_id) %>%
+  summarise(total = sum(abundancia_relativa), .groups = "drop")
+```
+
+Uní las tablas usando `sample_id` y dividí cada conteo entre el total de su muestra. Así obtuve proporciones que suman 1 en cada muestra.
+
+## Figura 1: los 10 géneros más abundantes (25 puntos)
+
+Calcula la abundancia relativa promedio de cada género considerando las 17 muestras, incluidos los conteos cero. Selecciona los diez con mayor promedio y reproduce la gráfica de barras horizontales ordenadas de mayor a menor. Muestra el eje de abundancia en porcentajes y agrega etiquetas apropiadas.
+
+```{r}
+# Promedio de cada género, incluyendo los conteos de cero
+top10 <- datos %>%
+  group_by(genero) %>%
+  summarise(promedio = mean(abundancia_relativa), .groups = "drop") %>%
+  arrange(desc(promedio)) %>%
+  slice_head(n = 10)
+
+top10
+
+ggplot(top10, aes(x = promedio, y = reorder(genero, promedio))) +
+  geom_col(fill = "#0077C2") +
+  scale_x_continuous(labels = scales::label_percent(accuracy = 1)) +
+  labs(title = "Los 10 géneros más abundantes",
+       x = "Abundancia relativa promedio",
+       y = "Género") +
+  theme_minimal()
+```
+
+El género que más destaca es Acetilactobacillus, con un promedio de 31.38 %. Los demás tienen promedios bastante menores. Los ceros cuentan para el promedio porque cada género está registrado en las 17 muestras.
+
+## Figura 2: composición bacteriana por muestra (30 puntos)
+
+Utiliza las abundancias relativas del apartado 2, **no solamente los diez taxones de la figura anterior**.
+
+- Dentro de cada muestra, agrupa los géneros cuya abundancia relativa sea estrictamente menor al 5 % en la categoría `Géneros < 5%`. Suma las abundancias de esa categoría.
+- Construye una gráfica de barras apiladas, una barra por muestra, separando las especies de abejas mediante facetas. Cada barra debe sumar 100 %.
+- Utiliza la paleta proporcionada y coloca la leyenda debajo de la gráfica.
+
+Paleta de referencia (puedes copiarla en un bloque de R) o puedes usar otra paleta de colores:
+
+```{r}
+genus_colors <- c(
+  "Acetilactobacillus" = "#002868",
+  "Apilactobacillus" = "#0077C2",
+  "Lactobacillus" = "#66B2FF",
+  "Nicoliella" = "#ADD8E1",
+  "Pantoea" = "#008080",
+  "Tatumella" = "#98FB98",
+  "Fructobacillus" = "#007BA7",
+  "Géneros < 5%" = "#778899"
+)
+```
+
+```{r}
+# Agrupar los géneros con menos del 5 % dentro de cada muestra
+composicion <- datos %>%
+  mutate(grupo_genero = if_else(abundancia_relativa < 0.05,
+                                "Géneros < 5%", genero)) %>%
+  group_by(species, sample_id, grupo_genero) %>%
+  summarise(abundancia_relativa = sum(abundancia_relativa),
+            .groups = "drop") %>%
+  mutate(grupo_genero = factor(grupo_genero,
+                               levels = names(genus_colors)))
+
+# Comprobar que cada barra suma 100 %
+composicion %>%
+  group_by(sample_id) %>%
+  summarise(total = sum(abundancia_relativa), .groups = "drop")
+```
+
+```{r}
+#| fig-width: 11
+#| fig-height: 6
+ggplot(composicion, aes(x = sample_id,
+                        y = abundancia_relativa,
+                        fill = grupo_genero)) +
+  geom_col() +
+  facet_grid(. ~ species, scales = "free_x", space = "free_x") +
+  scale_fill_manual(values = genus_colors) +
+  scale_y_continuous(labels = scales::label_percent(accuracy = 1),
+                     breaks = seq(0, 1, 0.25)) +
+  labs(title = "Composición bacteriana por muestra",
+       x = "Muestra",
+       y = "Abundancia relativa",
+       fill = "Género") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "bottom") +
+  guides(fill = guide_legend(nrow = 2, byrow = TRUE))
+```
+
+Los géneros con menos de 5 % se juntaron por muestra en una sola categoría y los que alcanzaron el 5 % o más se conservaron por separado. Todas las barras suman 100 %.
+
+## Interpretación (5 puntos)
+
+Responde brevemente con base en tus resultados:
+
+1.  ¿Cuál es el género con mayor abundancia relativa promedio?
+
+Acetilactobacillus, con una abundancia relativa promedio de aproximadamente 31.38 %.
+
+2.  ¿Qué diferencias o similitudes observas en la composición de las muestras de las dos especies de abejas?
+
+En *Melipona beecheii* destaca Acetilactobacillus en todas las muestras. En *Scaptotrigona mexicana* predominan los géneros agrupados por debajo del 5 %, aunque Apilactobacillus aparece en todas las muestras con al menos 5 %. Nicoliella aparece con al menos 5 % en algunas muestras de ambas especies. También hay diferencias entre muestras de la misma especie.

@@ -1,0 +1,18 @@
+sample_id,species,State,City,Region,Zootechnic_mangement,Flowering_type,Moisture,HMF,Color,pH,Conductivity,Ash,Total_sugar
+Melli_21,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Mixed honey,Multifloral,21.9,1.6,Light Amber,6.175,366,0.13,468
+Melli_22,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Jobon,Multifloral,21.5,3.4,Extra Light Amber,3.99,270.5,0.075,650
+Melli_39,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Beehive box,Multifloral,23,1.7,Extra Light Amber,4.58,146.9,0.004,642
+Melli_40,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Beehive box,Multifloral,25,4,Light Amber,3.98,246,0.061,543
+Melli_41,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Mixed honey,Multifloral,23,3.5,Extra Light Amber,4.78,201,0.035,449
+Melli_42,Melipona beecheii,QR,Jose Maria Morelos,Sureste,Jobon,Multifloral,21.9,1,Extra Light Amber,4.23,507,0.211,454
+Melli_45,Melipona beecheii,Yuc,Mani,Sureste,Beehive box,Multifloral,24.5,1,Extra Light Amber,3.99,372.5,0.134,624
+Melli_46,Melipona beecheii,Yuc,Mani,Sureste,Jobon,Multiflora,22,1,Extra Light Amber,4.57,576.5,0.251,470
+Melli_47,Melipona beecheii,Yuc,Mani,Sureste,Mixed honey,Multiflora,21.9,1,Extra Light Amber,5.59,372.5,0.134,
+Scapto_23,Scaptotrigona mexicana,Ver,Atzalan,Golfo,Beehive box,Multifloral,25,1,Extra Light Amber,3.75,404,0.152,417
+Scapto_43,Scaptotrigona mexicana,Ver,Atzalan,Golfo,Cantaro,Multifloral,25.5,7.1,Light Amber,3.955,463,0.186,389
+Scapto_51,Scaptotrigona mexicana,Ver,Atzalan,Golfo,Mixed honey,Multifloral,24,1.9,Extra Light Amber,3.565,360.5,0.127,444
+Scapto_89,Scaptotrigona mexicana,Ver,Papantla,Golfo,Cantaro,Multifloral,22.5,2,Extra Light Amber,4.005,444.5,0.175,360
+Scapto_90,Scaptotrigona mexicana,Ver,Papantla,Golfo,Mixed honey,Multifloral,23.5,0,Light Amber,4.295,789,0.373,
+Scapto_91,Scaptotrigona mexicana,Ver,Papantla,Golfo,Beehive box,Multifloral,23.6,1,White,4.045,246.5,0.061,344
+Scapto_92,Scaptotrigona mexicana,Ver,Tenochtitlan,Golfo,Beehive box,Multifloral,30.5,1,Extra Light Amber,3.64,174.3,0.02,304
+Scapto_93,Scaptotrigona mexicana,Ver,Tenochtitlan,Golfo,Mixed honey,Multifloral,26.4,1,Extra Light Amber,3.81,216.5,0.044,348
