@@ -1,0 +1,13 @@
+sample_id	condicion	replica	gene_id	funcion	longitud_pb	gc_porcentaje	conteo	promedio_muestra
+CTL_01	Control	1	gene_001	Función desconocida	1803	58.1	1302	607.35
+EST_01	Estres	1	gene_008	Metabolismo energético	2037	38	3058	1031.475
+EST_02	Estres	2	gene_008	Metabolismo energético	2037	38	4105	1325.775
+EST_03	Estres	3	gene_008	Metabolismo energético	2037	38	5257	1522.35
+EST_02	Estres	2	gene_017	Replicación y reparación	483	54.1	3118	1325.775
+EST_01	Estres	1	gene_018	Metabolismo energético	2166	53	3614	1031.475
+EST_02	Estres	2	gene_018	Metabolismo energético	2166	53	5482	1325.775
+EST_03	Estres	3	gene_018	Metabolismo energético	2166	53	5146	1522.35
+EST_01	Estres	1	gene_019	Transporte de membrana	1068	57.2	3351	1031.475
+EST_02	Estres	2	gene_019	Transporte de membrana	1068	57.2	3625	1325.775
+EST_03	Estres	3	gene_019	Transporte de membrana	1068	57.2	5083	1522.35
+CTL_01	Control	1	gene_023	Metabolismo de aminoácidos	1008	67.2	1222	607.35

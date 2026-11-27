@@ -1,0 +1,22 @@
+project:
+  type: default
+  output-dir: docs
+  render:
+    - reporte.qmd
+format:
+  html:
+    toc: true
+    toc-depth: 3
+    code-fold: true
+    code-tools: true
+    embed-resources: true
+    theme:
+      - cosmo
+      - estilos.scss
+    mainfont: "Arial"
+    fontsize: 12pt
+    linkcolor: "#267D86"
+execute:
+  warning: false
+  message: false
+  error: false
